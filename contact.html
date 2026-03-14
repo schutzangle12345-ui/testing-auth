@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | testing-auth - Security Questionnaire Automation</title>
+    <meta name="description" content="Get in touch with the testing-auth team. We help security and GRC teams automate vendor assessments and accelerate compliance.">
+    <style>
+        :root {
+            --color-primary: #6C5CE7;
+            --color-primary-dark: #5849BE;
+            --color-accent: #FAB1A0;
+            --color-background: #F0F3FF;
+            --color-surface: #FFFFFF;
+            --color-text: #2D3436;
+            --color-text-muted: #636E72;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+            --radius-lg: 24px;
+            --radius-md: 12px;
+            --shadow: 0 10px 30px rgba(108, 92, 231, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--color-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        .cta-button {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 4px 4px 0px var(--color-text);
+        }
+
+        .cta-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--color-text);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 5% 4rem;
+            text-align: center;
+            background: radial-gradient(circle at top right, var(--color-accent) 0%, transparent 20%),
+                        radial-gradient(circle at bottom left, var(--color-primary) 0%, transparent 20%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 1100px;
+            margin: 0 auto 6rem;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            padding: 0 5%;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--color-surface);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 3px solid var(--color-text);
+            box-shadow: 8px 8px 0px var(--color-primary);
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-form-wrapper {
+            background: var(--color-surface);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            border: 3px solid var(--color-text);
+            box-shadow: 12px 12px 0px var(--color-accent);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--color-text);
+        }
+
+        input, select, textarea {
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            border: 2px solid #E0E0E0;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .submit-btn {
+            background-color: var(--color-text);
+            color: white;
+            padding: 1.2rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--color-primary);
+            transform: scale(1.02);
+        }
+
+        /* Support Details */
+        .support-grid {
+            padding: 6rem 5%;
+            background: var(--color-surface);
+            text-align: center;
+        }
+
+        .support-grid h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            background: var(--color-background);
+            border: 2px dashed var(--color-primary);
+        }
+
+        .grid-item span {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-text);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-logo {
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            color: var(--color-accent);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            transition: fill 0.3s ease;
+        }
+
+        .social-icons svg:hover {
+            fill: var(--color-accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #AAA;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .contact-container { grid-template-columns: 1fr; }
+            .contact-info { order: 2; }
+            .contact-form-wrapper { order: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <span style="font-weight:700;font-size:1.25rem">testing-auth</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+            <a href="auth.html">Sign In</a>
+            <button class="cta-button" data-track="cta_click">Get Started</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Let’s build a better <br>security bridge 🌉</h1>
+        <p>Tired of security questionnaire fire drills? Whether you’re a GRC pro or a salesperson trying to close a deal, we're here to help you automate the grind.</p>
+    </header>
+
+    <main>
+        <section class="contact-container">
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3>👋 Sales Inquiries</h3>
+                    <p>Want a deep dive into our AI Auto-Fill and SME review workflows? Our team can show you how to cut response times by 80%.</p>
+                </div>
+                <div class="info-card">
+                    <h3>🛠 Technical Support</h3>
+                    <p>Need help connecting your GRC tools or setting up your Evidence Library? Our engineers are standing by.</p>
+                </div>
+                <div class="info-card">
+                    <h3>📍 Headquarters</h3>
+                    <p>123 Security Lane<br>Cloud City, SF 94105<br>United States</p>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <form data-backend="form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Work Email</label>
+                        <input type="email" id="email" name="email" placeholder="jane@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">How can we help?</label>
+                        <select id="subject" name="subject">
+                            <option value="demo">Request a Demo</option>
+                            <option value="support">Technical Support</option>
+                            <option value="billing">Billing Inquiry</option>
+                            <option value="partnership">Partnership</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="volume">Annual Questionnaires Received</label>
+                        <select id="volume" name="volume">
+                            <option value="1-20">1-20 questionnaires</option>
+                            <option value="21-100">21-100 questionnaires</option>
+                            <option value="100+">100+ questionnaires</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell us about your current workflow</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Do you use spreadsheets? Are your SMEs overwhelmed?" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" data-track="cta_click">Send Message 🚀</button>
+                    
+                    <p data-success style="display:none; color: #00b894; font-weight: bold; margin-top: 1rem; background: #e6fffb; padding: 1rem; border-radius: 8px; border: 2px solid #00b894;">
+                        Success! We've received your message and will be in touch within 24 hours.
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <section class="support-grid">
+            <h2>More ways to get answers 📚</h2>
+            <div class="grid-layout">
+                <div class="grid-item">
+                    <span>📖</span>
+                    <h3>Knowledge Base</h3>
+                    <p>Step-by-step guides on building your first evidence library and mapping questions.</p>
+                </div>
+                <div class="grid-item">
+                    <span>🤖</span>
+                    <h3>API Docs</h3>
+                    <p>Integrate testing-auth directly into your CRM or internal procurement portals.</p>
+                </div>
+                <div class="grid-item">
+                    <span>🎥</span>
+                    <h3>Video Tutorials</h3>
+                    <p>Quick 2-minute clips showing how to master the review & approval workflow.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html" class="footer-logo">
+                    <span style="font-weight:700;font-size:1.25rem">testing-auth</span>
+                </a>
+                <p>Automating security questionnaires so you can focus on real security, not spreadsheets.</p>
+                <div class="social-icons">
+                    <a href="#">
+                        <svg viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="index.html">Evidence Library</a></li>
+                    <li><a href="index.html">AI Auto-Fill</a></li>
+                    <li><a href="index.html">Review Workflow</a></li>
+                    <li><a href="index.html">Integrations</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="auth.html">Sign In</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 testing-auth. All rights reserved. Built for security teams, by security teams. 🛡️</p>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+      var BACKEND = 'https://epitaphic-everett-propitious.ngrok-free.dev/api';
+      var TOKEN = 'a4183c16b7c0035c4e2abb2b5286973a23081f83f8cfb2dac9b035b3c66cdfb4';
+      var DOMAIN = 'testingauth.com';
+      var FORM_ID = 'cmmpu8lac0001t8v433ukypwc';
+      var HEADERS = { 'Content-Type': 'application/json', 'X-Token': TOKEN, 'X-Domain': DOMAIN };
+    
+      // 1. Auto-track pageview
+      fetch(BACKEND + '/track', {
+        method: 'POST',
+        headers: HEADERS,
+        body: JSON.stringify({ event: 'pageview', path: window.location.pathname })
+      }).catch(function(){});
+    
+      // 2. Track CTA clicks
+      document.addEventListener('click', function(e) {
+        var el = e.target.closest('[data-track]');
+        if (el) {
+          fetch(BACKEND + '/track', {
+            method: 'POST',
+            headers: HEADERS,
+            body: JSON.stringify({ event: el.getAttribute('data-track'), path: window.location.pathname })
+          }).catch(function(){});
+        }
+      });
+    
+      // 3. Handle all forms (Contact, Signup, Waitlist)
+      document.addEventListener('submit', function(e) {
+        var form = e.target.closest('form[data-backend]');
+        if (!form) return;
+        e.preventDefault();
+        var type = form.getAttribute('data-backend');
+        var endpoint = type === 'signup' ? '/users' : '/forms/submit';
+        
+        // Extract dynamic form fields
+        var data = {};
+        new FormData(form).forEach(function(v, k) { data[k] = v; });
+        
+        // Add Form ID if it's a general form and we have it
+        if (type === 'form' && FORM_ID) {
+          data.formId = FORM_ID;
+        }
+    
+        var btn = form.querySelector('button[type="submit"]');
+        var originalText = '';
+        if (btn) {
+          originalText = btn.innerText;
+          btn.innerText = 'Sending...';
+          btn.disabled = true;
+        }
+    
+        // Track Form Submission Event
+        fetch(BACKEND + '/track', {
+          method: 'POST',
+          headers: HEADERS,
+          body: JSON.stringify({ 
+            event: 'form_submission', 
+            path: window.location.pathname,
+            metadata: { formType: type } 
+          })
+        }).catch(function(){});
+    
+        // Submit Form Data
+        fetch(BACKEND + endpoint, {
+          method: 'POST',
+          headers: HEADERS,
+          body: JSON.stringify(data)
+        }).then(function(r) { return r.json(); }).then(function(res) {
+          if (res.success) {
+            var msg = form.querySelector('[data-success]');
+            if (msg) { msg.style.display = 'block'; }
+            form.reset();
+            if (btn) btn.style.display = 'none';
+          } else {
+            alert(res.error || 'Failed to submit form');
+            if (btn) { btn.innerText = originalText; btn.disabled = false; }
+          }
+        }).catch(function(){
+          alert('Network error occurred');
+          if (btn) { btn.innerText = originalText; btn.disabled = false; }
+        });
+      });
+    })();
+    </script>
+</body>
+</html>
